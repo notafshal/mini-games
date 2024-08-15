@@ -1,0 +1,89 @@
+body {
+  --accent-color: orangered;
+  --background-color: white;
+  --text-color: black;
+  --button-text-color: var(--background-color);
+  --transition-delay: 1s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  transition: var(--transition-delay);
+  overflow: hidden;
+
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+body.dark {
+  --accent-color: #d0d066;
+  --background-color: #333;
+  --text-color: white;
+}
+body .icon {
+  fill: var(--text-color);
+}
+.title {
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+.theme-togglebtn {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.5rem 1em;
+  border-radius: 0.3em;
+  border: none;
+  outline: none;
+  transition: var(--transition-delay);
+  transform: 1;
+}
+.theme-togglebtn .icon {
+  margin-right: 0.5rem;
+}
+.theme-togglebtn:hover,
+.theme-togglebtn:focus {
+  transform: scale(1.1);
+}
+.sm-container {
+  --rotation: 0;
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  height: 100vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(var(--rotation));
+  transition: transform var(--transition-delay);
+}
+.dark .sm-container {
+  --rotation: 180deg;
+}
+.sun,
+.moon {
+  position: absolute;
+  transition: opacity, fill, var(--transition-delay);
+  width: 30px;
+  height: 30px;
+  fill: var(--accent-color);
+}
+
+.sun {
+  top: 5%;
+}
+.dark .sun {
+  opacity: 0;
+}
+.moon {
+  bottom: 5%;
+  opacity: 0;
+  transform: rotate(180deg);
+}
+.dark .moon {
+  opacity: 1;
+}
